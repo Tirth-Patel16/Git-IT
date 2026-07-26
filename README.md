@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # seatly_app
 
 A new Flutter project.
@@ -15,3 +16,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+
+>>>>>>> 8a66d41f2e2868650d026003d33e7c6cd485fa07
