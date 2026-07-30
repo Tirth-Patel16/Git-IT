@@ -12,6 +12,8 @@ class SeatLYApp extends StatefulWidget {
   State<SeatLYApp> createState() => _SeatLYAppState();
 }
 
+
+
 class _SeatLYAppState extends State<SeatLYApp> {
   int totalSeats = 62;
   int availableSeats = 62;
@@ -70,24 +72,20 @@ class _SeatLYAppState extends State<SeatLYApp> {
 
     return GestureDetector(
       onTap: () {
-        if (isBooked) return;
-        setState(() {
-          if (isSelected) {
-            selectedSeatList.remove(seatNo);
-          } else {
-            selectedSeatList.add(seatNo);
-          }
+  if (isBooked) return;
 
-          selectedSeats = selectedSeatList.length;
-          if (isSelected) {
-  selectedSeatList.remove(seatNo);
-  totalPrice -= price;
-} else {
-  selectedSeatList.add(seatNo);
-  totalPrice += price;
-}
-        });
-      },
+  setState(() {
+    if (selectedSeatList.contains(seatNo)) {
+      selectedSeatList.remove(seatNo);
+      totalPrice -= price;
+    } else {
+      selectedSeatList.add(seatNo);
+      totalPrice += price;
+    }
+
+    selectedSeats = selectedSeatList.length;
+  });
+},
       child: Container(
         height: 30,
         width: 30,
@@ -162,6 +160,27 @@ class _SeatLYAppState extends State<SeatLYApp> {
     );
   }
 
+  Widget timeButton(String time, bool selected) {
+  return Container(
+    width: 95,
+    height: 40,
+    decoration: BoxDecoration(
+      color: selected ? Colors.green : Colors.white,
+      border: Border.all(color: Colors.green, width: 2),
+      borderRadius: BorderRadius.circular(8),
+    ),
+    child: Center(
+      child: Text(
+        time,
+        style: TextStyle(
+          color: selected ? Colors.white : Colors.black,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
+  );
+}
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -182,25 +201,130 @@ class _SeatLYAppState extends State<SeatLYApp> {
         ),
         body: Column(
           children: [
-            const SizedBox(height: 20),
+            const SizedBox(height: 0),
 
             Center(
-              child: Container(
-                height: 180,
-                width: 370,
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade300,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                clipBehavior: Clip.antiAlias,
-child: Image.asset(
-  "assets.dart/avengers_endgame.jpg",
-  fit: BoxFit.cover,
-)
-              ),
-            ),
+  child: Column(
+    children: [
 
-            const SizedBox(height: 20),
+      // Top Shadow
+      
+
+      const SizedBox(height: 10),
+
+      // Main Screen
+      
+    
+
+    ],
+  ),
+),
+
+            const SizedBox(height: 10),
+
+            Container(
+  width: 370,
+  padding: const EdgeInsets.symmetric(
+    horizontal: 15,
+    vertical: 10,
+  ),
+  decoration: BoxDecoration(
+    color: const Color.fromARGB(255, 245, 245, 245),
+    borderRadius: BorderRadius.circular(12),
+  ),
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+
+      const Text(
+        "Spider-Man: Brand New Day",
+        style: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+
+      const SizedBox(height: 2),
+
+      const Text(
+        "PVR: Maruti Solaris, Anand",
+        style: TextStyle(
+          fontSize: 13,
+          color: Colors.grey,
+        ),
+      ),
+
+      const SizedBox(height: 8),
+
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+
+          const Text(
+            "Thu, 30 Jul",
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+
+          Row(
+            children: [
+
+              const Icon(
+                Icons.confirmation_number,
+                color: Colors.red,
+                size: 16,
+              ),
+
+              const SizedBox(width: 4),
+
+              Text(
+                "$selectedSeats Ticket${selectedSeats == 1 ? "" : "s"}",
+                style: const TextStyle(
+                  color: Colors.red,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+
+      const SizedBox(height: 8),
+
+      Container(
+  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+  decoration: BoxDecoration(
+    color: Colors.white,
+    borderRadius: BorderRadius.circular(10),
+  ),
+
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+
+      timeButton("07:30 AM", false),
+
+      timeButton("10:30 AM", true),
+
+      timeButton("01:30 PM", false),
+
+      
+
+    ],
+  ),
+),
+
+
+    ],
+  ),
+),
+
+
+
+            const SizedBox(height: 15),
 
             Center(
               child: Container(
@@ -211,14 +335,7 @@ child: Image.asset(
                   vertical: 16,
                 ),
                 decoration: BoxDecoration(
-  gradient: const LinearGradient(
-    colors: [
-      Color.fromARGB(255, 255, 5, 34),
-      Color.fromARGB(255, 86, 3, 250),
-    ],
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-  ),
+  color: const Color.fromRGBO(255, 255, 255, 1),
   borderRadius: BorderRadius.circular(20),
   boxShadow: const [
     BoxShadow(
@@ -227,8 +344,7 @@ child: Image.asset(
       offset: Offset(0, 4),
     ),
   ],
-),
-                child: Row(
+),                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Column(
@@ -287,6 +403,50 @@ child: Image.asset(
                 ),
               ),
             ),
+
+             const SizedBox(height: 20),
+
+          Container(
+        width: 300,
+        height: 8,
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 225, 240, 255),
+          borderRadius: BorderRadius.circular(20),
+        ),
+      ), 
+
+      const SizedBox(height: 5), 
+
+          Container(
+        width: 360,
+        height: 20,
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            colors: [
+              Color.fromARGB(255, 232, 245, 255),
+              Color.fromARGB(255, 195, 225, 255),
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+          
+          borderRadius: BorderRadius.zero,
+
+          border: Border.all(
+            color: Color.fromARGB(255, 180, 210, 240),
+            width: 2,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 12,
+              offset: Offset(0, 6),
+            ),
+          ],
+        ),
+        
+      ),
+
             const SizedBox(height: 20),
 
             seatRow(
