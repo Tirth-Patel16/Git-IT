@@ -24,46 +24,11 @@ class _SeatLYAppState extends State<SeatLYApp> {
   int totalPrice = 0;
 
   List<String> seats = [
-    "A1",
-    "A2",
-    "A3",
-    "A4",
-    "A5",
-    "A6",
-    "A7",
-    "A8",
-    "B1",
-    "B2",
-    "B3",
-    "B4",
-    "B5",
-    "B6",
-    "B7",
-    "B8",
-    "C1",
-    "C2",
-    "C3",
-    "C4",
-    "C5",
-    "C6",
-    "C7",
-    "C8",
-    "D1",
-    "D2",
-    "D3",
-    "D4",
-    "D5",
-    "D6",
-    "D7",
-    "D8",
-    "E1",
-    "E2",
-    "E3",
-    "E4",
-    "E5",
-    "E6",
-    "E7",
-    "E8",
+    "A1","A2","A3","A4","A5","A6","A7","A8",
+    "B1","B2","B3","B4","B5","B6","B7","B8",
+    "C1","C2","C3","C4","C5","C6","C7","C8",
+    "D1","D2","D3","D4","D5","D6","D7","D8",
+    "E1","E2","E3","E4","E5","E6","E7","E8",
   ];
 
   Widget seatBox(String seatNo, int price) {
@@ -72,7 +37,7 @@ class _SeatLYAppState extends State<SeatLYApp> {
 
     return GestureDetector(
       onTap: () {
-  if (isBooked) return;
+    if (isBooked) return;
 
   setState(() {
     if (selectedSeatList.contains(seatNo)) {
@@ -85,7 +50,7 @@ class _SeatLYAppState extends State<SeatLYApp> {
 
     selectedSeats = selectedSeatList.length;
   });
-},
+  },
       child: Container(
         height: 30,
         width: 30,
@@ -191,157 +156,151 @@ class _SeatLYAppState extends State<SeatLYApp> {
           centerTitle: true,
           backgroundColor: const Color.fromARGB(255, 59, 151, 151),
           title: Text(
-  'SeatLY-select your seat',
-  style: GoogleFonts.bebasNeue(
-    fontSize: 34,
-    color: Colors.white,
-    letterSpacing: 2,
-  ),
-),
+            'SeatLY-select your seat',
+            style: GoogleFonts.bebasNeue(
+              fontSize: 34,
+              color: Colors.white,
+              letterSpacing: 2,
+            ),
+          ),
         ),
-        body: Column(
-          children: [
+
+          body: Column(
+            children: [
+
             const SizedBox(height: 0),
 
             Center(
-  child: Column(
-    children: [
+              child: Column(
+                children: [
 
-      // Top Shadow
+            // Top Shadow
       
+                const SizedBox(height: 10),
+
+              // Main Screen
+      
+                ],
+              ),
+            ),
 
       const SizedBox(height: 10),
 
-      // Main Screen
-      
-    
-
-    ],
-  ),
-),
-
-            const SizedBox(height: 10),
-
-            Container(
-  width: 370,
-  padding: const EdgeInsets.symmetric(
-    horizontal: 15,
-    vertical: 10,
-  ),
-  decoration: BoxDecoration(
-    color: const Color.fromARGB(255, 245, 245, 245),
-    borderRadius: BorderRadius.circular(12),
-  ),
-  child: Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-
-      const Text(
-        "Spider-Man: Brand New Day",
-        style: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-
-      const SizedBox(height: 2),
-
-      const Text(
-        "PVR: Maruti Solaris, Anand",
-        style: TextStyle(
-          fontSize: 13,
-          color: Colors.grey,
-        ),
-      ),
-
-      const SizedBox(height: 8),
-
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-
-          const Text(
-            "Thu, 30 Jul",
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-            ),
+        Container(
+          width: 370,
+          padding: const EdgeInsets.symmetric(
+            horizontal: 15,
+            vertical: 10,
           ),
-
-          Row(
+          decoration: BoxDecoration(
+            color: const Color.fromARGB(255, 245, 245, 245),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
 
-              const Icon(
-                Icons.confirmation_number,
-                color: Colors.red,
-                size: 16,
+              const Text(
+                "Spider-Man: Brand New Day",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
 
-              const SizedBox(width: 4),
+              const SizedBox(height: 2),
 
-              Text(
-                "$selectedSeats Ticket${selectedSeats == 1 ? "" : "s"}",
-                style: const TextStyle(
-                  color: Colors.red,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
+              const Text(
+                "PVR: Maruti Solaris, Anand",
+                style: TextStyle(
+                  fontSize: 13,
+                  color: Colors.grey,
+                ),
+              ),
+
+              const SizedBox(height: 8),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+
+                  const Text(
+                    "Thu, 30 Jul",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                  Row(
+                    children: [
+
+                      const Icon(
+                        Icons.confirmation_number,
+                        color: Colors.red,
+                        size: 16,
+                      ),
+
+                      const SizedBox(width: 4),
+
+                      Text(
+                        "$selectedSeats Ticket${selectedSeats == 1 ? "" : "s"}",
+                        style: const TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+
+              const SizedBox(height: 8),
+
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+
+                    timeButton("07:30 AM", false),
+
+                    timeButton("10:30 AM", true),
+
+                    timeButton("01:30 PM", false),
+                  ],
                 ),
               ),
             ],
           ),
-        ],
-      ),
-
-      const SizedBox(height: 8),
-
-      Container(
-  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-  decoration: BoxDecoration(
-    color: Colors.white,
-    borderRadius: BorderRadius.circular(10),
-  ),
-
-  child: Row(
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    children: [
-
-      timeButton("07:30 AM", false),
-
-      timeButton("10:30 AM", true),
-
-      timeButton("01:30 PM", false),
-
-      
-
-    ],
-  ),
-),
-
-
-    ],
-  ),
-),
+        ),
 
 
 
-            const SizedBox(height: 15),
+        const SizedBox(height: 15),
 
-            Center(
-              child: Container(
-                height: 77,
-                width: 370,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 16,
-                ),
-                decoration: BoxDecoration(
-  color: const Color.fromRGBO(255, 255, 255, 1),
-  borderRadius: BorderRadius.circular(20),
-  boxShadow: const [
-    BoxShadow(
-      color: Colors.black12,
-      blurRadius: 10,
-      offset: Offset(0, 4),
+          Center(
+            child: Container(
+              height: 77,
+              width: 370,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20,
+                vertical: 16,
+              ),
+              decoration: BoxDecoration(
+            color: const Color.fromRGBO(255, 255, 255, 1),
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.black12,
+                blurRadius: 10,
+                offset: Offset(0, 4),
     ),
   ],
 ),                child: Row(
@@ -627,6 +586,7 @@ class _SeatLYAppState extends State<SeatLYApp> {
                     totalPrice = 0;
                   });
                 },
+
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.orange,
                   shape: RoundedRectangleBorder(
